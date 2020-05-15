@@ -22,8 +22,14 @@ export class PostsService {
       }))
   }
 
-  getOne(id: string): Observable<any> {
-    return this.http.get('')
+  getOne(id: string): Observable<Post> {
+    return this.http.get<Post>(`${environment.fbDbUrl}/posts/${id}.json`)
+      .pipe(map(( post: Post ) => {
+        return {
+          ...post, id,
+          date: new Date(post.date)
+        }
+      }))
   }
 
   getAll(): Observable<Post[]> {
@@ -39,8 +45,8 @@ export class PostsService {
       }))
   }
 
-  edit(post: Post): Observable<any> {
-    return this.http.patch('', post)
+  update(post: Post): Observable<Post> {
+    return this.http.patch<Post>(`${environment.fbDbUrl}/posts/${post.id}.json`, post)
   }
 
   delete(id: string): Observable<void> {
