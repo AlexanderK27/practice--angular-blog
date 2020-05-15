@@ -25,6 +25,8 @@ export class LoginPageComponent implements OnInit {
     this.route.queryParams.subscribe((params: Params) => {
       if (params['notAuth']) {
         this.message = 'Please log in to access the admin panel.'
+      } else if (params['sesExp']) {
+        this.message = 'Session has expired, please log in again.'
       }
     })
 

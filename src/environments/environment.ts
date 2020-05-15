@@ -2,11 +2,12 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 import { Environment } from './interface';
-import { API_KEY } from './constants'
+import { API_KEY, FB_DB_URL } from './constants'
 
 export const environment: Environment = {
   production: false,
-  apiKey: API_KEY
+  apiKey: API_KEY,
+  fbDbUrl: FB_DB_URL
 };
 
 /*

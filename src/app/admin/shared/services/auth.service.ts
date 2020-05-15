@@ -5,7 +5,7 @@ import { catchError, tap } from 'rxjs/operators'
 import { User, FbAuthResponse } from 'src/app/shared/interfaces';
 import { environment } from 'src/environments/environment';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class AuthService {
 
   public error$: Subject<string> = new Subject<string>()
